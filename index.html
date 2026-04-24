@@ -17,6 +17,17 @@ body {
   color: white;
   background: url('bg.jpg') no-repeat center center/cover;
   min-height: 100vh;
+  position: relative;
+}
+
+/* subtle glow overlay */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent);
+  pointer-events: none;
 }
 
 /* Dark overlay */
@@ -27,7 +38,7 @@ body {
   flex-direction: column;
 }
 
-/* Title */
+/* Header */
 .header {
   text-align: center;
   padding: 40px 20px 10px;
@@ -40,28 +51,32 @@ body {
 }
 
 .header p {
-  color: #bbb;
-  margin-top: 5px;
+  color: #ccc;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 /* Columns */
 .columns {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
+  gap: 40px;
+  padding: 30px 20px;
   flex-wrap: wrap;
 }
 
 /* Cards */
 .card {
-  width: 260px;
+  width: 280px;
+  height: 420px;
   padding: 20px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   text-align: center;
   transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .card:hover {
@@ -73,17 +88,34 @@ body {
   display: block;
   margin: 12px 0;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.05);
-  transition: 0.3s;
+  color: #ddd;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+  transition: 0.25s;
 }
 
 .btn:hover {
-  background: rgba(255,0,50,0.2);
-  box-shadow: 0 0 12px #ff0033;
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+/* Scroll box (changelog) */
+.scroll {
+  height: 320px;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 14px;
+  padding-right: 5px;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
 }
 
 /* Footer */
@@ -113,66 +145,66 @@ body {
     <!-- Download -->
     <div class="card">
       <h3>Download</h3>
-      <a href="https://t.me/voidxhubfakelagbot" class="btn">Download APK</a>
-      <a href="https://t.me/voidxhub" class="btn">Join Telegram</a>
+      <a href="https://t.me/yashxchi98" class="btn">Download APK</a>
+      <a href="https://t.me/yashxchi98" class="btn">Join Telegram</a>
     </div>
 
     <!-- About -->
     <div class="card">
       <h3>About</h3>
       <p>
-      Fake Lag is an Android app that lets you create a slow or fake connection.
+        Fake Lag is an Android app that lets you create a slow or fake connection.
       </p>
     </div>
 
     <!-- Changelog -->
     <div class="card">
       <h3>Changelog</h3>
-      <p>
-       v1.0 ▪ Bug fixes on some devices
-v1.2 ▪ Added new features & Bug fixes
-v1.3 ▪ Bug fixes that could not be installed on some devices and Added time
-v1.4 ▪ Theme changes and code updates
-v1.5 ▪ Code updates and downloader additions for Android 15
-v1.6 ▪ Added icon position lock feature
-v1.7 ▪ Added auto lag feature
-v1.8 ▪ Fixed auto lag when canceled and added transparent icon
-v1.9 ▪ Source code update
-v2.0 ▪ Version update
-v2.1 ▪ Bug fixes and can't be opened
-v2.2 ▪ Added sound when clicked
-v2.3 ▪ Added bypass
-v2.4 ▪ Added feature to trigger Fake Lag via volume up and down
-v2.5 ▪ Performance improvements to reduce lag
-v2.6 ▪ Code updates and improvements to be more responsive
-v2.7 ▪ Removed vibration when starting fake lag
-v2.8 ▪ Added instant free fire open button
-v2.9 ▪ Fixed error when clicking start
-v3.0 ▪ Fixed unable to install on android 15
-v3.1 ▪ Fixed android bugs
-v3.2 ▪ Now can see enemy movement
-v3.3 ▪ Added 2 mode feature, normal mode and freeze mode
-v3.4 ▪ Added some features
-v3.5 ▪ Added the feature of saving the last lag duration
-v3.6 ▪ Bug fixes
-v3.7 ▪ Reduced signal delay
-v3.8 ▪ Added no vpn feature
-v3.9 ▪ Added a little bypass
-v4.0 ▪ Added powerful bypass
-v4.1 ▪ Added 2 buttons
-v4.2 ▪ Settings panel update
-v4.3 ▪ Source update
-v4.4 ▪ Removed system log method
-v4.5 ▪ Added cooldown
-v4.6 ▪ Only supports regular Free Fire and Free Fire Max
-v4.7 ▪ Removed auto lag and save config features because rarely anyone uses them
-v4.8 ▪ Fixed network bugs
-v4.9 ▪ Added bypass string
-v5.0 ▪ Change fakelag to the latest one
-v5.1 ▪ Watermark changes, VPN 2 and many more
-v5.2 ▪ Fixed some bugs
-v5.3 ▪ Added 2x bypass<br>
-      </p>
+      <div class="scroll">
+        v1.0 ▪ Bug fixes on some devices<br>
+        v1.2 ▪ Added new features & Bug fixes<br>
+        v1.3 ▪ Bug fixes and improvements<br>
+        v1.4 ▪ Theme changes and code updates<br>
+        v1.5 ▪ Code updates for Android 15<br>
+        v1.6 ▪ Added icon position lock<br>
+        v1.7 ▪ Added auto lag feature<br>
+        v1.8 ▪ Fixed auto lag issues<br>
+        v1.9 ▪ Source update<br>
+        v2.0 ▪ Version update<br>
+        v2.1 ▪ Bug fixes<br>
+        v2.2 ▪ Added click sound<br>
+        v2.3 ▪ Added bypass<br>
+        v2.4 ▪ Volume trigger feature<br>
+        v2.5 ▪ Performance improvements<br>
+        v2.6 ▪ Responsiveness improved<br>
+        v2.7 ▪ Removed vibration<br>
+        v2.8 ▪ Instant game open button<br>
+        v2.9 ▪ Fixed start error<br>
+        v3.0 ▪ Android 15 fix<br>
+        v3.1 ▪ Bug fixes<br>
+        v3.2 ▪ Movement visibility<br>
+        v3.3 ▪ Added modes<br>
+        v3.4 ▪ Feature update<br>
+        v3.5 ▪ Save last duration<br>
+        v3.6 ▪ Bug fixes<br>
+        v3.7 ▪ Reduced delay<br>
+        v3.8 ▪ No VPN feature<br>
+        v3.9 ▪ Minor bypass<br>
+        v4.0 ▪ Strong bypass<br>
+        v4.1 ▪ UI update<br>
+        v4.2 ▪ Settings update<br>
+        v4.3 ▪ Source update<br>
+        v4.4 ▪ Removed logs<br>
+        v4.5 ▪ Cooldown added<br>
+        v4.6 ▪ Game support update<br>
+        v4.7 ▪ Removed unused features<br>
+        v4.8 ▪ Network fixes<br>
+        v4.9 ▪ Added bypass string<br>
+        v5.0 ▪ Latest fakelag system<br>
+        v5.1 ▪ VPN improvements<br>
+        v5.2 ▪ Bug fixes<br>
+        v5.3 ▪ Added 2x bypass
+      </div>
     </div>
 
   </div>
